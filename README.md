@@ -52,6 +52,12 @@ Tabela de dados do Prouni (dados_prouni.csv):
     </ul>
   </li>
 
+  <li>coluna: data_nascimento
+   <ul>
+      <li>converter o tipo do campo deve ser date</li>
+    </ul>
+  </li>
+
 </ul>
 
 Foram utilizados os dados baixados da base de dados no site a seguir:

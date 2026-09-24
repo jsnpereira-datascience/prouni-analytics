@@ -38,3 +38,6 @@ def correct_data_imputer(data,columns,neighbors=2):
             index= data.index)
      data[columns] = data_fix
      return data
+
+def drop_columns(data,columns):
+      return data.drop(columns=columns)
