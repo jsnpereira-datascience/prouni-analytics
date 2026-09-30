@@ -1,5 +1,8 @@
 from sklearn.impute import KNNImputer
 import pandas as pd
+from pathlib import Path
+
+BASE_PROJECT = Path(__file__).resolve().parents[2]
 
 def clean_empty_data(data):
     if data.isna().any(axis=1).sum() > 0:
@@ -41,3 +44,11 @@ def correct_data_imputer(data,columns,neighbors=2):
 
 def drop_columns(data,columns):
       return data.drop(columns=columns)
+
+def save_csv(data, filename="data_processed"):
+    folder = 'data/processed'
+    base =  BASE_PROJECT / folder
+    base.mkdir(parents=True,exist_ok=True)
+    address = base / f'{filename}.csv'
+    data.to_csv(address, index=False, encoding='utf-8-sig', sep=';', date_format='%Y-%m-%d')
+    print(f'The CSV file salved in: {address.resolve()}')

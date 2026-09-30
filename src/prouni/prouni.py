@@ -16,6 +16,9 @@ def process_city_missing(data, city_states):
     )
 
     data.loc[missing.index, 'id_municipio'] = missing['id_municipio']
-
     return data
+
+def change_data_capital(data):
+    data['capital_uf'] = data['capital_uf'].map(lambda value: 'sim' if value == 1.0 else 'não')
+    return data;
 
